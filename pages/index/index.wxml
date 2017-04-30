@@ -1,10 +1,22 @@
 <!--index.wxml-->
-<view class="container">
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+<view class="welcome">
+<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <text class="tabb">{{userInfo.nickName}}</text>
+  <text class="tabb">{{datetoday}}</text>
+
+  <text wx:if="{{isPunch}}"> 已打卡 </text>
+  <text wx:else> 未打卡 </text>
+  
+</view>
+  <text class="tabb">我的年度目标：</text>
+<view class="container log-list">
+  <block wx:for="{{yeartarget}}" wx:for-item="tag" wx:key="*this">
+    <text class="log-item">{{index + 1}}. {{tag}}</text>
+  </block>
+</view>
+
+
+
+<view class="button-wrapper">
+      <button type="primary" size="default" bindtap="onclockin"> 打卡 </button>
 </view>

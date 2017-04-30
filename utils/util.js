@@ -8,8 +8,22 @@ function formatTime(date) {
   var second = date.getSeconds()
 
 
-  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
+
+function formatDate(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+
+  var week = date.getDay()
+
+  var a = new Array("日", "一", "二", "三", "四", "五", "六");  
+  var str = "星期"+ a[week];  
+
+  return [year, month, day].map(formatNumber).join('-') + ' ' + str
+}
+
 
 function formatNumber(n) {
   n = n.toString()
@@ -17,5 +31,6 @@ function formatNumber(n) {
 }
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  formatDate: formatDate
 }
