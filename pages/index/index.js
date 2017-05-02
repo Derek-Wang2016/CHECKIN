@@ -23,6 +23,12 @@ Page({
     this.setData({
       isPunch: !this.data.isPunch
     })
+
+    wx.showToast({
+    title: '打卡成功',
+    icon: 'success',
+    duration: 1000
+    })
   },
 
   onLoad: function () {
